@@ -3,6 +3,7 @@ pipeline {
     stages { 
         stage('checkout') {
             steps {
+                print "${params.string}"
                 sh 'rm -rf hello-world-war'
                 sh 'git clone https://github.com/efsavage/hello-world-war.git'
             }
@@ -19,7 +20,7 @@ pipeline {
                 sh 'sudo cp -r  /home/jackiee/workspace/pipeline/hello-world-war /opt/apache-tomcat-9.0.64/webapps/'
                 sh 'sudo  sh /opt/apache-tomcat-9.0.64/bin/shutdown.sh'
                 sh 'sudo  sh /opt/apache-tomcat-9.0.64/bin/startup.sh'
-                sh 'echo "Successfully deployed correctly"'
+                sh 'echo "Successfully deployed correctly "'
             }
         
         }
